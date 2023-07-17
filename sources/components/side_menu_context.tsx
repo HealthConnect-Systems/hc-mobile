@@ -1,9 +1,9 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { DrawerContentScrollView, DrawerItem } from '@react-navigation/drawer';
 import { Avatar, Title, Caption, Drawer } from 'react-native-paper';
 
-const SideMenuContent = (props) => {
+const SideMenuContent = (props: any) => {
     return (
         <View style={{ flex: 1 }}>
             <DrawerContentScrollView {...props}>
@@ -23,9 +23,9 @@ const SideMenuContent = (props) => {
                         </View>
                     </View>
                     <Drawer.Section style={styles.drawerSection}>
-                        {/* <Drawer.Item icon="home" label="Home" onPress={() => props.navigation.navigate('home')} />
+                        <Drawer.Item icon="home" label="Home" onPress={() => props.navigation.navigate('home')} />
                         <Drawer.Item icon="bookmark" label="Clinics" onPress={() => props.navigation.navigate('clinics')} />
-                        <Drawer.Item icon="settigs" label="Settings" onPress={() => props.navigation.navigate('settings')} /> */}
+                        <Drawer.Item icon="settigs" label="Settings" onPress={() => props.navigation.navigate('settings')} />
                     </Drawer.Section>
                 </View>
             </DrawerContentScrollView>
@@ -40,4 +40,31 @@ const SideMenuContent = (props) => {
 }
 
 export default SideMenuContent;
+
+const styles = StyleSheet.create({
+    drawerContent: {
+        flex: 1,
+    },
+    userInfoSection: {
+        paddingLeft: 20,
+        marginTop: 15,
+    },
+    title: {
+        marginTop: 3,
+        fontWeight: 'bold',
+    },
+    caption: {
+        fontSize: 14,
+        lineHeight: 14,
+    },
+    drawerSection: {
+        marginTop: 15,
+    },
+    bottomDrawerSection: {
+        marginBottom: 15,
+        borderTopColor: '#f4f4f4',
+        borderTopWidth: 1,
+    },
+});
+
 

@@ -1,8 +1,6 @@
 import { I18nextProvider } from 'react-i18next';
-import i18n from './sources/i18n';
+import i18n from './sources/i18n/config';
 import SideMenu from './sources/screens/side_menu';
-
-
 import { StyleSheet, Text, View } from 'react-native';
 
 export default function App() {

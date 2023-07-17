@@ -1,7 +1,15 @@
 import React from 'react';
-import { View, Text, Button, StyleSheet  } from 'react-native';
+import { View, Text, Button, StyleSheet, GestureResponderEvent  } from 'react-native';
 
 const clinics = ()=> {
+    function handleLogin(event: GestureResponderEvent): void {
+        throw new Error('Function not implemented.');
+    }
+
+    function handleRegister(event: GestureResponderEvent): void {
+        throw new Error('Function not implemented.');
+    }
+
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Welcome to React Native</Text>
