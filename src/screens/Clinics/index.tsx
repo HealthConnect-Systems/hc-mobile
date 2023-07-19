@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, Button, StyleSheet, GestureResponderEvent  } from 'react-native';
 
-const clinics = ()=> {
+const Clinics = ()=> {
     function handleLogin(event: GestureResponderEvent): void {
         throw new Error('Function not implemented.');
     }
@@ -12,7 +12,7 @@ const clinics = ()=> {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Welcome to React Native</Text>
+            <Text style={styles.title}>Clinics</Text>
             <Button
                 title="Login"
                 onPress={handleLogin}
@@ -38,4 +38,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default clinics;
+export default Clinics;
