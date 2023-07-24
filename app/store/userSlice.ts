@@ -7,8 +7,8 @@ export interface UserState {
 }
 
 const initialState: UserState = {
-    name: '',
-    email: '',
+    name: 'Kyaw Lin Myat',
+    email: 'mr.kyawlinmyat@gmail.com',
     photo: ''
 };
 
