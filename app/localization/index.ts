@@ -15,5 +15,6 @@ const i18n = new I18n({
 i18n.locale = getLocales()[0].languageCode;
 console.log(i18n.locale);
 
-const dics =  _.mapValues(_.clone(en), (value, key) => i18n.t(key));
+const dics = _.mapValues(_.clone(en), (_, key) => i18n.t(key));
+
 export default dics;
