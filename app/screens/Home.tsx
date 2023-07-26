@@ -2,7 +2,7 @@ import React from 'react';
 import { View } from 'react-native';
 import { Card, Button, Text } from 'react-native-paper';
 
-const Home = () => {
+const HomeScreen = () => {
     return (
         <View>
             <Text> Home Page</Text>
@@ -22,4 +22,4 @@ const Home = () => {
     )
 }
 
-export default Home;
+export default HomeScreen;

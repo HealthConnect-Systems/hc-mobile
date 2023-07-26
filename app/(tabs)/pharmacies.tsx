@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 
 import { Text, View } from '../components/common/Themed';
 
-export default function Pharmacies() {
+export default function PharmaciesScreen() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Pharmacies</Text>

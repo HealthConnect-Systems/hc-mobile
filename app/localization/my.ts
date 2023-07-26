@@ -1,4 +1,4 @@
 export default {
-    'welcome': 'Mingalarbar!',
+    'welcome': 'မင်္ဂလာပါ!',
     'login': 'Login',
 }

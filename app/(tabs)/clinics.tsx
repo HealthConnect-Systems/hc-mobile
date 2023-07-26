@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import { Text, View } from '../components/common/Themed';
 
-export default function clinics() {
+export default function ClinicsScreen() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Clinics</Text>
