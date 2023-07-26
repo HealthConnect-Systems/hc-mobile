@@ -1,5 +1,6 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome';
-import { MD3LightTheme, MD3DarkTheme, PaperProvider } from 'react-native-paper';
+import {  PaperProvider } from 'react-native-paper';
+import Theme from './constants/Theme';
 import { useFonts } from 'expo-font';
 import { SplashScreen, Stack } from 'expo-router';
 import { useEffect } from 'react';
@@ -33,37 +34,13 @@ export default function RootLayout() {
     </>
   );
 }
-
-
-
-const Theme = {
-  ...MD3LightTheme,
-  roundness: 2,
-  colors: {
-    ...MD3LightTheme.colors,
-    primary: '#3498db',
-    secondary: '#f1c40f',
-    tertiary: '#a1b2c3',
-  },
-};
-
-
-const DarkTheme = {
-  ...MD3DarkTheme,
-  roundness: 2,
-  colors: {
-    ...MD3DarkTheme.colors
-  },
-};
-
-
-
+ 
 function RootLayoutNav() {
   return (
     <>
-      <PaperProvider theme={DarkTheme}>
+      <PaperProvider theme={Theme}>
         <Stack>
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} /> 
           <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
         </Stack>
       </PaperProvider>
