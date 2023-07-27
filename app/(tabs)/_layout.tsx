@@ -44,6 +44,8 @@ export default function TabLayout() {
       <Tabs.Screen
         name="pharmacies"
         options={{
+          headerShown: false,
+
           title: 'Pharmacies',
           tabBarIcon: ({ color }) => <TabBarIcon name="shopping-bag" color={color} />,
         }}

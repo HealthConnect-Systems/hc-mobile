@@ -1,5 +1,8 @@
 import { MD3LightTheme } from 'react-native-paper';
 import Fonts, { IOSFonts} from './Fonts';
+import { Dimensions } from 'react-native';
+
+const { width, height } = Dimensions.get('screen');
 
 const Colors = {
     ...MD3LightTheme.colors,
@@ -26,4 +29,15 @@ export default {
         ios: IOSFonts
     },
     
+};
+export const SIZES = {
+    h1: 22,
+    h2: 20,
+    h3: 18,
+    h4: 16,
+    h5: 14,
+    h6: 12,
+
+    width,
+    height,
 };

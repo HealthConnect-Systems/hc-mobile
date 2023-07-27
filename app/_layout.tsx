@@ -1,5 +1,5 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome';
-import {  PaperProvider } from 'react-native-paper';
+import { PaperProvider } from 'react-native-paper';
 import Theme from './constants/Theme';
 import { useFonts } from 'expo-font';
 import { SplashScreen, Stack } from 'expo-router';
@@ -34,13 +34,14 @@ export default function RootLayout() {
     </>
   );
 }
- 
+
 function RootLayoutNav() {
   return (
     <>
       <PaperProvider theme={Theme}>
         <Stack>
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} /> 
+          <Stack.Screen name="Welcome1" options={{  }} />
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
           <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
         </Stack>
       </PaperProvider>
