@@ -1,8 +1,8 @@
 import { StyleSheet, StatusBar, Image } from 'react-native';
 import React, { useState } from "react";
-import { Text, View } from '../components/common/Themed';
+import { Text, View } from '../components/controls';
 import AppIntroSlider from "react-native-app-intro-slider";
-import Theme, { SIZES } from '../constants/Theme';
+import SIZES from '../constants/Size';
 import { Button, Card } from 'react-native-paper';
 
 const slides = [
@@ -29,13 +29,10 @@ const slides = [
 export default function PharmaciesScreen() {
   const [showHomePage, setShowHomePage] = useState(true);
 
-  StatusBar.setBarStyle('light-content', true);
-  StatusBar.setBackgroundColor(Theme.colors.primary);
-
   const buttonLabel = (label: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | null | undefined) => {
     return (
       <Card.Actions style={{ padding: 0 }}>
-        <Button textColor='white' style={{ borderColor: Theme.colors.tertiary }}>
+        <Button>
           {
             label
           }
@@ -66,8 +63,6 @@ export default function PharmaciesScreen() {
       renderItem={({ item }) => {
         return (
           <View style={{
-            backgroundColor: Theme.colors.primary,
-
             flex: 1,
             alignItems: 'center',
             padding: 15,
@@ -97,7 +92,6 @@ export default function PharmaciesScreen() {
         )
       }}
       activeDotStyle={{
-        backgroundColor: Theme.colors.primaryBackground,
         width: 30,
       }}
       showSkipButton

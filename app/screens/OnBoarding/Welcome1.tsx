@@ -1,9 +1,9 @@
 import { StyleSheet, StatusBar, Image } from 'react-native';
 import React, { useState } from "react";
-
-import { Text, View } from '../../components/common/Themed';
+import { View } from 'react-native';
+import { Text } from 'react-native-paper';
 import AppIntroSlider from "react-native-app-intro-slider";
-import Theme, { SIZES } from '../../constants/Theme';
+import  SIZES  from '../../constants/Size';
 
 const slides = [
     {
@@ -29,15 +29,11 @@ const slides = [
 export default function PharmaciesScreen() {
     const [showHomePage, setShowHomePage] = useState(true);
 
-    StatusBar.setBarStyle('light-content', true);
-    StatusBar.setBackgroundColor(Theme.colors.tertiary);
-
     const buttonLabel = (label: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | null | undefined) => {
         return (
 
             <View style={{
                 padding: 10,
-                backgroundColor: Theme.colors.primary
             }}>
 
                 <Text style={{
@@ -59,8 +55,6 @@ export default function PharmaciesScreen() {
             renderItem={({ item }) => {
                 return (
                     <View style={{
-                        backgroundColor: Theme.colors.primary,
-
                         flex: 1,
                         alignItems: 'center',
                         padding: 15,
@@ -90,7 +84,6 @@ export default function PharmaciesScreen() {
                 )
             }}
             activeDotStyle={{
-                backgroundColor: Theme.colors.primaryBackground,
                 width: 30,
             }}
             showSkipButton
@@ -106,20 +99,3 @@ export default function PharmaciesScreen() {
     // }
 
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    title: {
-        fontSize: 20,
-        fontWeight: 'bold',
-    },
-    separator: {
-        marginVertical: 30,
-        height: 1,
-        width: '80%',
-    },
-});

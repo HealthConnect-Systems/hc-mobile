@@ -1,62 +1,44 @@
-/**
- * Learn more about Light and Dark modes:
- * https://docs.expo.io/guides/color-schemes/
- */
+import { StatusBar, useColorScheme } from 'react-native';
+import { MD3LightTheme, MD3DarkTheme } from 'react-native-paper';
+import Fonts, { IOSFonts } from '../../constants/Fonts';
 
-import { Text as DefaultText, useColorScheme, View as DefaultView } from 'react-native';
-
-const tintColorLight = '#2f95dc';
-const tintColorDark = '#fff';
-
-const Colors =
-{
-  light: {
-    text: '#000',
-    background: '#fff',
-    tint: tintColorLight,
-    tabIconDefault: '#ccc',
-    tabIconSelected: tintColorLight,
+const Theme = {
+  ...MD3LightTheme,
+  roundness: 2,
+  colors: {
+    ...MD3LightTheme.colors
   },
-  dark: {
-    text: '#fff',
-    background: '#000',
-    tint: tintColorDark,
-    tabIconDefault: '#ccc',
-    tabIconSelected: tintColorDark,
-  }
+  fonts: {
+    ...MD3LightTheme.fonts,
+    ...Fonts,
+    ios: IOSFonts
+  },
 }
-export function useThemeColor(
-  props: { light?: string; dark?: string },
-  colorName: keyof typeof Colors.light & keyof typeof Colors.dark
-) {
-  const theme = useColorScheme() ?? 'light';
-  const colorFromProps = props[theme];
 
-  if (colorFromProps) {
-    return colorFromProps;
-  } else {
-    return Colors[theme][colorName];
+const DarkTheme = {
+  ...Theme,
+  ...MD3DarkTheme,
+  colors: {
+    ...MD3DarkTheme.colors
   }
 }
 
-type ThemeProps = {
-  lightColor?: string;
-  darkColor?: string;
+
+export default {
+  light: Theme,
+  dark: DarkTheme
 };
 
-export type TextProps = ThemeProps & DefaultText['props'];
-export type ViewProps = ThemeProps & DefaultView['props'];
+export const getTheme = () => {
+  const theme = useColorScheme();
+  if (theme === 'dark') {
+    StatusBar.setBarStyle('light-content', true);
+    StatusBar.setBackgroundColor(DarkTheme.colors.primary);
+    return DarkTheme;
+  }
 
-export function Text(props: TextProps) {
-  const { style, lightColor, darkColor, ...otherProps } = props;
-  const color = useThemeColor({ light: lightColor, dark: darkColor }, 'text');
+  StatusBar.setBarStyle('dark-content', false);
+  StatusBar.setBackgroundColor(Theme.colors.primary);
 
-  return <DefaultText style={[{ color }, style]} {...otherProps} />;
-}
-
-export function View(props: ViewProps) {
-  const { style, lightColor, darkColor, ...otherProps } = props;
-  const backgroundColor = useThemeColor({ light: lightColor, dark: darkColor }, 'background');
-
-  return <DefaultView style={[{ backgroundColor }, style]} {...otherProps} />;
+  return Theme;
 }
