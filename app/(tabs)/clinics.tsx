@@ -1,7 +1,11 @@
-import { StyleSheet } from 'react-native';
+import { StatusBar, StyleSheet } from 'react-native';
 import { Text, View } from '../components/common/Themed';
+import Theme from '../constants/Theme';
 
 export default function ClinicsScreen() {
+
+  StatusBar.setBarStyle('light-content', true);
+  StatusBar.setBackgroundColor(Theme.colors.primary);
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Clinics</Text>
@@ -15,14 +19,18 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: Theme.colors.secondaryText
   },
   title: {
     fontSize: 20,
     fontWeight: 'bold',
+    color: Theme.colors.primary
   },
   separator: {
     marginVertical: 30,
     height: 1,
     width: '80%',
+    backgroundColor: Theme.colors.primary
+
   },
 });

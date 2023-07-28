@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Text, View } from '../components/common/Themed';
 import AppIntroSlider from "react-native-app-intro-slider";
 import Theme, { SIZES } from '../constants/Theme';
+import { Button, Card } from 'react-native-paper';
 
 const slides = [
   {
@@ -33,19 +34,26 @@ export default function PharmaciesScreen() {
 
   const buttonLabel = (label: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | null | undefined) => {
     return (
+      <Card.Actions style={{ padding: 0 }}>
+        <Button textColor='white' style={{ borderColor: Theme.colors.tertiary }}>
+          {
+            label
+          }
+        </Button>
+      </Card.Actions>
 
-      <View style={{
-        padding: 8,
-        backgroundColor: Theme.colors.primary
-      }}>
+      // <View style={{
+      //   padding: 8,
+      //   backgroundColor: Theme.colors.primary
+      // }}>
 
-        <Text style={{
-          fontWeight: '500',
+      //   <Text style={{
+      //     fontWeight: '500',
 
-        }}>
-          {label}
-        </Text>
-      </View>
+      //   }}>
+      //     {label}
+      //   </Text>
+      // </View>
     )
   }
 
@@ -63,12 +71,12 @@ export default function PharmaciesScreen() {
             flex: 1,
             alignItems: 'center',
             padding: 15,
-            paddingTop: 100,
+            paddingTop: 60,
           }}>
             <Image
               source={item.image}
               style={{
-                width: SIZES.width - 50,
+                width: SIZES.width - 30,
                 height: SIZES.height * 0.5,
               }}
               resizeMode="contain"

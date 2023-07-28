@@ -8,7 +8,7 @@ const HomeScreen = () => {
             <Text> Home Page</Text>
             <Button> Press me </Button>
             <Card>
-                <Card.Title title="Card Title" subtitle="Card Subtitle" />
+                <Card.Title title="Home Scren" subtitle="Card Subtitle" />
                 <Card.Content>
                     <Text>Card content</Text>
                 </Card.Content>
