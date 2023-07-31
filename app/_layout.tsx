@@ -35,14 +35,12 @@ export default function RootLayout() {
 }
 
 function RootLayoutNav() {
-  const theme = getTheme();
-  
+  const theme = getTheme();  
   return (
     <>
       <PaperProvider theme={theme}>
         <Stack>
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-          <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
         </Stack>
       </PaperProvider>
     </>

@@ -1,7 +1,7 @@
 import React from "react";
-import {View, Text} from "react-native";
+import {View, Text} from "../../components/controls";
 
-const Welcome1 = () => {
+const Welcome3 = () => {
     return (
         <View>
             <Text>Welcome3</Text>
@@ -9,4 +9,4 @@ const Welcome1 = () => {
     )
 }
 
-export default Welcome1;
+export default Welcome3;

@@ -4,13 +4,15 @@ import { getTheme } from '../common/Themed';
 
 type Props = React.ComponentProps<typeof PaperText>;
 
-export const Text = (props: Props) => {
-    return (<PaperText {...props} >
+export const Text: React.FC<Props> = (props: Props) => {
+    return (<PaperText {...props}>
         {props.children}
-    </PaperText>
-    );
+    </PaperText>);
 }
 
+export const MonoText = (props: Props) => {
+    return <Text {...props} style={[props.style, { fontFamily: 'SpaceMono' }]} />;
+}
 
 export const Title = (props: Props) => {
     const theme = getTheme();

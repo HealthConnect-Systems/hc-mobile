@@ -1,9 +1,9 @@
-import { StyleSheet, StatusBar, Image } from 'react-native';
+import { Image } from 'react-native';
 import React, { useState } from "react";
 import { View } from 'react-native';
 import { Text } from 'react-native-paper';
 import AppIntroSlider from "react-native-app-intro-slider";
-import  SIZES  from '../../constants/Size';
+import SIZES from '../../constants/Size';
 
 const slides = [
     {

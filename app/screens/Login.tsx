@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Text, Button } from '../components/controls';
 import { useDispatch } from 'react-redux';
 
 const Login = () => {
@@ -12,7 +12,7 @@ const Login = () => {
     return (
         <View>
             <Text>Login</Text>
-            <Button title="Login" onPress={login} />
+            <Button onPress={login} > Login </Button>
         </View>
     )
 }

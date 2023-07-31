@@ -1,20 +1,8 @@
-import FontAwesome from '@expo/vector-icons/FontAwesome';
+
 import { Tabs } from 'expo-router';
 import SIZES from '../constants/Size';
-import { View } from 'react-native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { View, TabBarIcon } from '../components/controls';
 import { getTheme } from '../components/common/Themed';
-
-const Tab = createBottomTabNavigator()
-
-
-
-function TabBarIcon(props: {
-  name: React.ComponentProps<typeof FontAwesome>['name'];
-  color?: string;
-}) {
-  return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
-}
 
 export default function TabLayout() {
   const theme = getTheme();
@@ -35,7 +23,6 @@ export default function TabLayout() {
               style={{
                 backgroundColor: theme.colors.surface,
                 flex: 1,
-
               }}
             />
           );
@@ -75,7 +62,5 @@ export default function TabLayout() {
         }}
       />
     </Tabs>
-
-
   );
 }

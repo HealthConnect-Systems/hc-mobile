@@ -1,9 +1,8 @@
-import { StyleSheet, StatusBar, Image } from 'react-native';
+import { StyleSheet, Image } from 'react-native';
 import React, { useState } from "react";
-import { Text, View } from '../components/controls';
+import { View, Text, CardAction } from '../components/controls';
 import AppIntroSlider from "react-native-app-intro-slider";
 import SIZES from '../constants/Size';
-import { Button, Card } from 'react-native-paper';
 
 const slides = [
   {
@@ -28,31 +27,7 @@ const slides = [
 ]
 export default function PharmaciesScreen() {
   const [showHomePage, setShowHomePage] = useState(true);
-
-  const buttonLabel = (label: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | null | undefined) => {
-    return (
-      <Card.Actions style={{ padding: 0 }}>
-        <Button>
-          {
-            label
-          }
-        </Button>
-      </Card.Actions>
-
-      // <View style={{
-      //   padding: 8,
-      //   backgroundColor: Theme.colors.primary
-      // }}>
-
-      //   <Text style={{
-      //     fontWeight: '500',
-
-      //   }}>
-      //     {label}
-      //   </Text>
-      // </View>
-    )
-  }
+ 
 
   // if(!showHomePage) {
   return (
@@ -95,9 +70,9 @@ export default function PharmaciesScreen() {
         width: 30,
       }}
       showSkipButton
-      renderNextButton={() => buttonLabel("Next")}
-      renderSkipButton={() => buttonLabel("Skip")}
-      renderDoneButton={() => buttonLabel("Done")}
+      renderNextButton={() => CardAction("Next")}
+      renderSkipButton={() => CardAction("Skip")}
+      renderDoneButton={() => CardAction("Done")}
       onDone={() => {
         setShowHomePage(true);
       }
