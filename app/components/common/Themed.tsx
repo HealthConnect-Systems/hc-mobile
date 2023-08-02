@@ -1,4 +1,4 @@
-import { StatusBar, useColorScheme } from 'react-native';
+import { useColorScheme } from 'react-native';
 import { MD3LightTheme, MD3DarkTheme } from 'react-native-paper';
 import Fonts, { IOSFonts } from '../../constants/Fonts';
 
@@ -7,7 +7,16 @@ const Theme = {
   roundness: 2,
   colors: {
     ...MD3LightTheme.colors,
-    primary: 'green'
+    primary: '#4CAF50',
+    secondary: '#C5E1A5',
+    background: '#FFFFFF',
+    surface: '#FFFFFF',
+    error: '#B00020',
+    onPrimary: '#FFFFFF',
+    onSecondary: '#000000',
+    onBackground: '#000000',
+    onSurface: '#000000',
+    onError: '#FFFFFF'
   },
   fonts: {
     ...MD3LightTheme.fonts,
@@ -21,9 +30,17 @@ const DarkTheme = {
   ...MD3DarkTheme,
   colors: {
     ...MD3DarkTheme.colors,
-    primary: 'yellow'
-
-  }
+    primary: '#006400',
+    secondary: '#003300',
+    background: '#000000',
+    surface: '#000000',
+    onPrimary: '#FFFFFF',
+    onSecondary: '#FFFFFF'
+  }, fonts: {
+    ...MD3DarkTheme.fonts,
+    ...Fonts,
+    ios: IOSFonts
+  },
 }
 
 
@@ -35,14 +52,7 @@ export default {
 export const getTheme = () => {
   const theme = useColorScheme();
   if (theme === 'dark') {
-    StatusBar.setBarStyle('light-content', true);
-    StatusBar.setBackgroundColor(DarkTheme.colors.primary);
     return DarkTheme;
   }
-  
-
-  StatusBar.setBarStyle('dark-content', false);
-  StatusBar.setBackgroundColor(Theme.colors.primary);
-
   return Theme;
 }
