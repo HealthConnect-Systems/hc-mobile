@@ -6,7 +6,8 @@ const Theme = {
   ...MD3LightTheme,
   roundness: 2,
   colors: {
-    ...MD3LightTheme.colors
+    ...MD3LightTheme.colors,
+    primary: 'green'
   },
   fonts: {
     ...MD3LightTheme.fonts,
@@ -19,7 +20,9 @@ const DarkTheme = {
   ...Theme,
   ...MD3DarkTheme,
   colors: {
-    ...MD3DarkTheme.colors
+    ...MD3DarkTheme.colors,
+    primary: 'yellow'
+
   }
 }
 
@@ -36,6 +39,7 @@ export const getTheme = () => {
     StatusBar.setBackgroundColor(DarkTheme.colors.primary);
     return DarkTheme;
   }
+  
 
   StatusBar.setBarStyle('dark-content', false);
   StatusBar.setBackgroundColor(Theme.colors.primary);
