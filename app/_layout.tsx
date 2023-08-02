@@ -1,18 +1,42 @@
+import React, { useEffect } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { PaperProvider } from 'react-native-paper';
 import { getTheme } from './components/common/Themed';
 import { useFonts } from 'expo-font';
 import { SplashScreen, Stack } from 'expo-router';
-import { useEffect } from 'react';
 
 export {
-  // Catch any errors thrown by the Layout component.
   ErrorBoundary,
 } from 'expo-router';
 
 export const unstable_settings = {
-  initialRouteName: '(tabs)',
-};
+  initialRouteName: '(tabs)'
+}
+
+const Onboarding = () => {
+  const [firstLaunch, setFirstLaunch] = React.useState(false);
+
+  React.useEffect(() => {
+    async function setData() {
+      const appData = await AsyncStorage.getItem("appLaunched");
+      if (appData == null) {
+        setFirstLaunch(true);
+        AsyncStorage.setItem("appLaunched", "false");
+      } else {
+        setFirstLaunch(false);
+      }
+    }
+    setData();
+  }, []);
+
+  return (
+    <Stack.Screen
+      options={{ headerShown: false }}
+      name="onboarding"
+    />
+  );
+}
 
 export default function RootLayout() {
   const [loaded, error] = useFonts({
@@ -27,7 +51,6 @@ export default function RootLayout() {
 
   return (
     <>
-      {/* Keep the splash screen open until the assets have loaded. In the future, we should just support async font loading with a native version of font-display. */}
       {!loaded && <SplashScreen />}
       {loaded && <RootLayoutNav />}
     </>
@@ -35,11 +58,12 @@ export default function RootLayout() {
 }
 
 function RootLayoutNav() {
-  const theme = getTheme();  
+  const theme = getTheme();
   return (
     <>
       <PaperProvider theme={theme}>
         <Stack>
+          {/* <Onboarding /> */}
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         </Stack>
       </PaperProvider>

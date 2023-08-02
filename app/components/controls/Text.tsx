@@ -19,7 +19,8 @@ export const Title = (props: Props) => {
     return (<PaperText {...props} style={{
         fontSize: 18,
         fontWeight: 'bold',
-        color: theme.colors.primary
+        color: theme.colors.primary,
+        alignContent: 'center',
     }}>
         {props.children}
     </PaperText>
