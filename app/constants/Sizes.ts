@@ -11,4 +11,5 @@ export default {
     h6: 12,
     width,
     height,
+    icon24: 24,
 };

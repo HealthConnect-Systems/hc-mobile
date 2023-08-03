@@ -5,7 +5,7 @@ import { PaperProvider } from 'react-native-paper';
 import { getTheme } from './components/common/Themed';
 import { useFonts } from 'expo-font';
 import { SplashScreen, Stack } from 'expo-router';
-import Onboarding from './components/onboarding';
+import Onboarding from './components/Onboarding';
 export {
   ErrorBoundary,
 } from 'expo-router';
@@ -14,31 +14,22 @@ export const unstable_settings = {
   initialRouteName: '(tabs)'
 }
 
-// const Onboarding = () => {
-//   const [firstLaunch, setFirstLaunch] = React.useState(false);
-
-//   React.useEffect(() => {
-//     async function setData() {
-//       const appData = await AsyncStorage.getItem("appLaunched");
-//       if (appData == null) {
-//         setFirstLaunch(true);
-//         AsyncStorage.setItem("appLaunched", "false");
-//       } else {
-//         setFirstLaunch(false);
-//       }
-//     }
-//     setData();
-//   }, []);
-
-//   return (
-//     <Stack.Screen
-//       options={{ headerShown: false }}
-//       name="onboarding"
-//     />
-//   );
-// }
+function RootLayoutNav() {
+  const theme = getTheme();
+  return (
+    <>
+      <PaperProvider theme={theme}>
+        <Stack>
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        </Stack>
+      </PaperProvider>
+    </>
+  );
+}
 
 export default function RootLayout() {
+  const [firstLaunch, setFirstLaunch] = React.useState(false);
+
   const [loaded, error] = useFonts({
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
     ...FontAwesome.font,
@@ -49,25 +40,24 @@ export default function RootLayout() {
     if (error) throw error;
   }, [error]);
 
-  return (
-    <>
-      {/* {!loaded && <SplashScreen />}
-      {loaded && <RootLayoutNav />} */}
-      {< Onboarding />}
-    </>
-  );
-}
+  useEffect(() => {
+    async function setData() {
+      const appData = await AsyncStorage.getItem("appLaunched");
+      if (appData == null) {
+        setFirstLaunch(true);
+        AsyncStorage.setItem("appLaunched", "false");
+      } else {
+        setFirstLaunch(false);
+      }
+    }
+    setData();
+  }, []);
 
-function RootLayoutNav() {
-  const theme = getTheme();
-  return (
-    <>
-      <PaperProvider theme={theme}>
-        <Stack>
-          {/* <Onboarding /> */}
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        </Stack>
-      </PaperProvider>
-    </>
-  );
+  if (!loaded) {
+    return (<SplashScreen />);
+  }
+  if (firstLaunch) {
+    return (< Onboarding onDone={() => setFirstLaunch(false)} />)
+  }
+  return (<RootLayoutNav />);
 }

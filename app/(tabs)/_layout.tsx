@@ -1,6 +1,6 @@
 
 import { Tabs } from 'expo-router';
-import SIZES from '../constants/Size';
+import SIZES from '../constants/Sizes';
 import { View, TabBarIcon } from '../components/controls';
 import { getTheme } from '../components/common/Themed';
 

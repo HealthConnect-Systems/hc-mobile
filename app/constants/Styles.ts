@@ -6,7 +6,7 @@ export default StyleSheet.create({
         backgroundColor: Colors.primary,
         color: Colors.primaryText,
         borderRadius: 2,
-        padding: '10px 20px',
+        padding: '15px',
         textAlign: 'center',
         display: 'flex',
         fontSize: 16
@@ -27,7 +27,6 @@ export default StyleSheet.create({
     },
     navbarLink: {
         color: Colors.secondaryText,
-        textDecoration: 'none'
     },
     navbarLinkHover: {
         color: '#cccccc'
