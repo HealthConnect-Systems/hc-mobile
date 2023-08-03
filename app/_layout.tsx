@@ -5,7 +5,7 @@ import { PaperProvider } from 'react-native-paper';
 import { getTheme } from './components/common/Themed';
 import { useFonts } from 'expo-font';
 import { SplashScreen, Stack } from 'expo-router';
-
+import Onboarding from './components/onboarding';
 export {
   ErrorBoundary,
 } from 'expo-router';
@@ -14,29 +14,29 @@ export const unstable_settings = {
   initialRouteName: '(tabs)'
 }
 
-const Onboarding = () => {
-  const [firstLaunch, setFirstLaunch] = React.useState(false);
+// const Onboarding = () => {
+//   const [firstLaunch, setFirstLaunch] = React.useState(false);
 
-  React.useEffect(() => {
-    async function setData() {
-      const appData = await AsyncStorage.getItem("appLaunched");
-      if (appData == null) {
-        setFirstLaunch(true);
-        AsyncStorage.setItem("appLaunched", "false");
-      } else {
-        setFirstLaunch(false);
-      }
-    }
-    setData();
-  }, []);
+//   React.useEffect(() => {
+//     async function setData() {
+//       const appData = await AsyncStorage.getItem("appLaunched");
+//       if (appData == null) {
+//         setFirstLaunch(true);
+//         AsyncStorage.setItem("appLaunched", "false");
+//       } else {
+//         setFirstLaunch(false);
+//       }
+//     }
+//     setData();
+//   }, []);
 
-  return (
-    <Stack.Screen
-      options={{ headerShown: false }}
-      name="onboarding"
-    />
-  );
-}
+//   return (
+//     <Stack.Screen
+//       options={{ headerShown: false }}
+//       name="onboarding"
+//     />
+//   );
+// }
 
 export default function RootLayout() {
   const [loaded, error] = useFonts({
@@ -51,8 +51,9 @@ export default function RootLayout() {
 
   return (
     <>
-      {!loaded && <SplashScreen />}
-      {loaded && <RootLayoutNav />}
+      {/* {!loaded && <SplashScreen />}
+      {loaded && <RootLayoutNav />} */}
+      {< Onboarding />}
     </>
   );
 }
