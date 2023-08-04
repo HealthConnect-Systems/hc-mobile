@@ -4,8 +4,8 @@ import Sizes from '../../constants/Sizes';
 
 export const ArrowRight: React.FC = () => {
     return (<IconButton
-        icon="arrow-right"
-        size={Sizes.icon12}
+        icon="keyboard-double-arrow-right"
+        size={Sizes.icon24}
     />
     );
 }
@@ -13,7 +13,7 @@ export const ArrowRight: React.FC = () => {
 export const ArrowLeft: React.FC = () => {
     return (<IconButton
         icon="arrow-left"
-        size={Sizes.icon12}
+        size={Sizes.icon24}
 
     />
     );

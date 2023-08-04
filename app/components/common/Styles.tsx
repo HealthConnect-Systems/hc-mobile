@@ -1,40 +1,17 @@
 import { StyleSheet } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { getTheme } from './Themed';
 
-export default StyleSheet.create({
+const theme = getTheme();
+const insets = useSafeAreaInsets();
+
+export const Styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        padding: 10,
-        justifyContent: 'center',
-    },
-    titleStyle: {
-        padding: 10,
-        textAlign: 'center',
-        fontSize: 18,
-        fontWeight: 'bold',
-    },
-    paragraphStyle: {
-        padding: 20,
-        textAlign: 'center',
-        fontSize: 16,
-    },
-    introImageStyle: {
-        width: 200,
-        height: 200,
-    },
-    introTextStyle: {
-        fontSize: 18,
-        color: 'white',
-        textAlign: 'center',
-        paddingVertical: 30,
-    },
-    introTitleStyle: {
-        fontSize: 25,
-        color: 'white',
-        textAlign: 'center',
-        marginBottom: 16,
-        fontWeight: 'bold',
+        backgroundColor: theme.colors.background,
+        paddingBottom: insets.bottom,
+        paddingLeft: insets.left,
+        paddingRight: insets.left,
     },
     buttonCircle: {
         width: 40,
@@ -45,3 +22,5 @@ export default StyleSheet.create({
         alignItems: 'center',
     },
 });
+
+export default Styles;
