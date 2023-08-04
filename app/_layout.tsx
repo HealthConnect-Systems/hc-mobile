@@ -19,10 +19,13 @@ function RootLayoutNav() {
   return (
     <>
       <PaperProvider theme={theme}>
+        
         <Stack>
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         </Stack>
+
       </PaperProvider>
+
     </>
   );
 }

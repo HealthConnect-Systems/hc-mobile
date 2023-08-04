@@ -12,7 +12,8 @@ export const View = (props: NativeView['props']) => {
 
 export const SafeAreaView = (props: NativeSafeAreaView['props']) => {
     const style = props.style;
-    return (<NativeSafeAreaView {...props} style={{ alignItems: 'center', ...style?.valueOf }}>
+
+    return (<NativeSafeAreaView {...props} style={{ flex: 1, alignItems: 'center', ...style?.valueOf }}>
         {props.children}
     </NativeSafeAreaView >
     );

@@ -20,6 +20,13 @@ export const PrevButton: React.FC = () => {
         </View>
     );
 };
+export const SkipButton: React.FC = () => {
+    return (
+        <View style={Styles.buttonCircle}>
+            <Check />
+        </View>
+    );
+};
 
 export const NextButton: React.FC = () => {
     return (

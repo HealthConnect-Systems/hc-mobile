@@ -12,4 +12,5 @@ export default {
     width,
     height,
     icon24: 24,
+    icon12 : 12
 };

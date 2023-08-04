@@ -16,7 +16,8 @@ const Theme = {
     onSecondary: '#000000',
     onBackground: '#000000',
     onSurface: '#000000',
-    onError: '#FFFFFF'
+    onError: '#FFFFFF',
+    
   },
   fonts: {
     ...MD3LightTheme.fonts,
@@ -36,6 +37,7 @@ const DarkTheme = {
     surface: '#000000',
     onPrimary: '#FFFFFF',
     onSecondary: '#FFFFFF'
+  
   }, fonts: {
     ...MD3DarkTheme.fonts,
     ...Fonts,

@@ -1,10 +1,8 @@
-import { StatusBar, StyleSheet, View } from 'react-native';
-import { Text, Button } from 'react-native-paper';
+import { Title } from '../components/controls';
+
 
 export default function ClinicsScreen() {
   return (
-    <View>
-      <Text>Clinics</Text>
-    </View>
-  );
+      <Title>Clinics</Title>
+       );
 } 

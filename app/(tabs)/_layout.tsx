@@ -1,64 +1,39 @@
+import * as React from 'react';
+import { BottomNavigation, Text } from 'react-native-paper';
+import HomeTab from './home';
+import ClinicsScreen from './clinics';
+import PharmaciesScreen from './pharmacies';
+import DoctorsScreen from './doctors';
 
-import { Tabs } from 'expo-router';
-import SIZES from '../constants/Sizes';
-import { View, TabBarIcon } from '../components/controls';
-import { getTheme } from '../components/common/Themed';
 
-export default function TabLayout() {
-  const theme = getTheme();
+
+const MyComponent = () => {
+  const [index, setIndex] = React.useState(0);
+  const [routes] = React.useState([
+    { key: 'home', title: 'Home', icon: 'Home' },
+    { key: 'clinics', title: 'Clinics', icon: 'album' },
+    { key: 'pharmaices', title: 'Pharmaices', icon: 'history' },
+    { key: 'doctors', title: 'Doctors', icon: 'history' },
+
+  ]);
+
+  const renderScene = BottomNavigation.SceneMap({
+    home: HomeTab,
+    clinics: ClinicsScreen,
+    pharmaices: PharmaciesScreen,
+    doctors: DoctorsScreen
+
+
+  });
+
   return (
-    <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: theme.colors.primary,
-        tabBarInactiveTintColor: 'grey',
-        tabBarStyle: {
-          paddingBottom: 10,
-          paddingTop: 10,
-          height: SIZES.height * 0.09
+    <BottomNavigation
+      navigationState={{ index, routes }}
+      onIndexChange={setIndex}
+      renderScene={renderScene}
+    />
 
-        },
-        tabBarBackground() {
-          return (
-            <View
-              style={{
-                backgroundColor: theme.colors.surface,
-                flex: 1,
-              }}
-            />
-          );
-        },
-      }}
-    >
-      <Tabs.Screen
-        name="home"
-        options={{
-          title: 'Home',
-          headerShown: false,
-          tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />
-        }}
-      />
-      <Tabs.Screen
-        name="clinics"
-        options={{
-          title: 'Clinics',
-          tabBarIcon: ({ color }) => <TabBarIcon name="hospital-o" color={color} />,
-        }}
-      />
-      <Tabs.Screen
-        name="pharmacies"
-        options={{
-          headerShown: false,
-          title: 'Pharmacies',
-          tabBarIcon: ({ color }) => <TabBarIcon name="shopping-bag" color={color} />,
-        }}
-      />
-      <Tabs.Screen
-        name="doctors"
-        options={{
-          title: 'Doctors',
-          tabBarIcon: ({ color }) => <TabBarIcon name="user-md" color={color} />,
-        }}
-      />
-    </Tabs>
   );
-}
+};
+
+export default MyComponent;
