@@ -1,36 +1,30 @@
 import React, { useEffect } from 'react';
+import { useColorScheme } from 'react-native';
+import { useFonts } from 'expo-font';
+import { SplashScreen, Slot, Tabs, Stack } from 'expo-router';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { PaperProvider } from 'react-native-paper';
-import { getTheme } from './components/common/Themed';
-import { useFonts } from 'expo-font';
-import { SplashScreen, Stack } from 'expo-router';
+import Themed from './components/common/Themed';
 import Onboarding from './components/Onboarding';
-export {
-  ErrorBoundary,
-} from 'expo-router';
 
-export const unstable_settings = {
-  initialRouteName: '(tabs)'
-}
-
-function RootLayoutNav() {
-  const theme = getTheme();
+function RootLayout() {
+  const theme = useColorScheme() === 'dark' ? Themed.dark : Themed.light;
   return (
     <>
       <PaperProvider theme={theme}>
-        
+        <SafeAreaView style={{ flex: 1 }}>          
         <Stack>
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          <Stack.Screen name="screens" options={{ headerShown: false }} />
         </Stack>
-
+        </SafeAreaView>
       </PaperProvider>
-
     </>
   );
 }
 
-export default function RootLayout() {
+export default () => {
   const [firstLaunch, setFirstLaunch] = React.useState(false);
 
   const [loaded, error] = useFonts({
@@ -62,5 +56,5 @@ export default function RootLayout() {
   if (firstLaunch) {
     return (< Onboarding onDone={() => setFirstLaunch(false)} />)
   }
-  return (<RootLayoutNav />);
+  return (<RootLayout />);
 }

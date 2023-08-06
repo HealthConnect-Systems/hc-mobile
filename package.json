@@ -1,6 +1,7 @@
 {
   "name": "health-connect",
   "version": "1.0.0",
+  "main": "expo-router/entry",
   "scripts": {
     "eas-build-pre-install": "cd .. && yarn",
     "start": "npx expo start",

@@ -1,14 +1,13 @@
 import { StyleSheet } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { getTheme } from './Themed';
 
-const theme = getTheme();
 const insets = useSafeAreaInsets();
 
 export const Styles = StyleSheet.create({
     container: {
-        flex: 1,
-        backgroundColor: theme.colors.background,
+        alignItems: 'center',
+        justifyContent: 'center',
+        paddingTop: insets.top,
         paddingBottom: insets.bottom,
         paddingLeft: insets.left,
         paddingRight: insets.left,
@@ -16,10 +15,26 @@ export const Styles = StyleSheet.create({
     buttonCircle: {
         width: 40,
         height: 40,
-        backgroundColor: 'rgba(0, 0, 0, 255)',
         borderRadius: 20,
         justifyContent: 'center',
         alignItems: 'center',
+    },
+    introImageStyle: {
+        width: 200,
+        height: 200,
+    },
+    introTextStyle: {
+        fontSize: 18,
+        color: 'white',
+        textAlign: 'center',
+        paddingVertical: 30,
+    },
+    introTitleStyle: {
+        fontSize: 25,
+        color: 'white',
+        textAlign: 'center',
+        marginBottom: 16,
+        fontWeight: 'bold',
     },
 });
 
