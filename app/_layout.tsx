@@ -13,12 +13,10 @@ function RootLayout() {
   const theme = useColorScheme() === 'dark' ? Themed.dark : Themed.light;
   return (
     <>
-      <PaperProvider theme={theme}>
-        <SafeAreaView style={{ flex: 1 }}>          
+      <PaperProvider theme={theme}>       
         <Stack>
           <Stack.Screen name="screens" options={{ headerShown: false }} />
-        </Stack>
-        </SafeAreaView>
+        </Stack> 
       </PaperProvider>
     </>
   );
