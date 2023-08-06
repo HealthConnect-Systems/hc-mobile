@@ -5,7 +5,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 const HomeScreen = () => {
-    return (
+    return ( 
         <View>
             <Text> Home Page</Text>
             <Button onPress={() => {
