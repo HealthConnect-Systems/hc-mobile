@@ -1,16 +1,9 @@
 import { StyleSheet } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
-
-const insets = useSafeAreaInsets();
 
 export const Styles = StyleSheet.create({
     container: {
         alignItems: 'center',
-        justifyContent: 'center',
-        paddingTop: insets.top,
-        paddingBottom: insets.bottom,
-        paddingLeft: insets.left,
-        paddingRight: insets.left,
+        justifyContent: 'center' 
     },
     buttonCircle: {
         width: 40,
