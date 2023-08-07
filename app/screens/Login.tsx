@@ -1,20 +1,40 @@
 import React from 'react';
-import { View, Text, Button } from '../components/controls';
+import { Button, TextInput, Modal, Portal, Row } from '../components/controls';
 import { useDispatch } from 'react-redux';
+import { login } from '../store/authSlice';
 
-const Login = () => {
+type Props = {
+    visible: boolean;
+    onCanceled: () => void;
+    onLogin: (userInfo: any) => void;
+};
+
+const LoginScreen = (props: Props) => {
     const dispatch = useDispatch();
+    const  [email, setEmail] = React.useState('');
+    const  [password, setPassword] = React.useState('');
 
-    const login = () => {
-        dispatch({ type: "LOGIN", payload: { name: "John Doe" } });
+    const handleLogin = () => {
+        dispatch(login({email, password}));
+        props?.onLogin({email, password});
     }
 
+    const cancel = () => {
+        props?.onCanceled();
+    }
+ 
     return (
-        <View>
-            <Text>Login</Text>
-            <Button onPress={login} > Login </Button>
-        </View>
+        <Portal>
+            <Modal visible={props.visible} onDismiss={cancel} >
+                <TextInput label="Email" />
+                <TextInput label="Password" />
+                <Row>
+                    <Button onPress={handleLogin}>Sign In</Button>
+                    <Button onPress={cancel}>Cancel</Button>
+                </Row>
+            </Modal>
+        </Portal>
     )
 }
 
-export default Login;
+export default LoginScreen;

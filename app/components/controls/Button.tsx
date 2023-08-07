@@ -1,15 +1,14 @@
 import React from 'react';
-import { Button as PaperButton } from 'react-native-paper';
+import { Button as PaperButton, } from 'react-native-paper';
 import Styles from '../common/Styles';
 import { View } from './View';
 import { ArrowLeft, ArrowRight, Check } from './Icons';
 
 type Props = React.ComponentProps<typeof PaperButton>;
 export const Button: React.FC<Props> = (props: Props) => {
-    return (<PaperButton  {...props}
-    >
+    return (<PaperButton  {...props} mode='contained' style={[Styles.button, props.style]} >
         {props.children}
-    </PaperButton>
+    </PaperButton >
     );
 }
 

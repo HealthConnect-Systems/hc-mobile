@@ -1,3 +1,6 @@
+export {
+    TextInput, Portal, Modal,
+} from 'react-native-paper';
 export * from './View';
 export * from './Card';
 export * from './Button';
