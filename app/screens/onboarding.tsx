@@ -1,4 +1,17 @@
-export default [
+import React from 'react';
+import { Dimensions, useColorScheme } from 'react-native';
+import AppIntroSlider from 'react-native-app-intro-slider';
+import Themed from '../components/common/Themed';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { Title } from 'react-native-paper';
+import { Styles } from '../components/common';
+import { Image, Text, View } from '../components/controls';
+
+
+type Props = {
+    onDone: () => void;
+}
+const Slides = [
     {
         key: 's1',
         text: 'Best Recharge offers',
@@ -60,3 +73,43 @@ export default [
         backgroundColor: '#febe29',
     },
 ];
+
+
+const OnboardingItem = ({ item }: { item: any }) => {
+    const width = Dimensions.get('window').width;
+    const height = Dimensions.get('window').height;
+    return (
+        <View
+            style={{ backgroundColor: item.backgroundColor }}>
+            <Title > {item.title} </Title>
+            <Image
+                style={{ width, height, resizeMode: 'contain' }}
+                image={item.image} />
+            <Text style={Styles.introTextStyle}>
+                {item.text}
+            </Text>
+        </View >
+    );
+};
+
+export default (props: Props) => {
+    const theme = useColorScheme() === 'dark' ? Themed.dark : Themed.light;
+    const insets = useSafeAreaInsets();
+    return (
+        <>
+            <AppIntroSlider
+                data={Slides}
+                renderItem={OnboardingItem}
+                style={{
+                    backgroundColor: theme.colors.background,
+                    shadowColor: theme.colors.background,
+                    alignContent: 'center'
+                }}
+                onDone={props.onDone}
+                showPrevButton={true}
+                showSkipButton={true}
+                contentInset={insets}
+            />
+        </>
+    );
+}; 

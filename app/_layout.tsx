@@ -7,16 +7,16 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { PaperProvider } from 'react-native-paper';
 import Themed from './components/common/Themed';
-import Onboarding from './components/Onboarding';
+import Onboarding from './screens/onboarding';
 
 function RootLayout() {
   const theme = useColorScheme() === 'dark' ? Themed.dark : Themed.light;
   return (
     <>
-      <PaperProvider theme={theme}>       
+      <PaperProvider theme={theme}>
         <Stack>
           <Stack.Screen name="screens" options={{ headerShown: false }} />
-        </Stack> 
+        </Stack>
       </PaperProvider>
     </>
   );
@@ -47,6 +47,7 @@ export default () => {
     }
     setData();
   }, []);
+  return (< Onboarding onDone={() => setFirstLaunch(false)} />)
 
   if (!loaded) {
     return (<SplashScreen />);
