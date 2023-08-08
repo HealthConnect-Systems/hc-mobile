@@ -48,7 +48,6 @@ export default () => {
     setData();
   }, []);
   return (< Onboarding onDone={() => setFirstLaunch(false)} />)
-
   if (!loaded) {
     return (<SplashScreen />);
   }

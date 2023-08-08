@@ -1,6 +1,9 @@
 export {
-    TextInput, Portal, Modal,
+    TextInput, Portal, Modal
 } from 'react-native-paper';
+export {
+    ImageBackground
+} from 'react-native';
 export * from './View';
 export * from './Card';
 export * from './Button';
