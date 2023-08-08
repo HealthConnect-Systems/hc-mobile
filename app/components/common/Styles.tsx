@@ -28,13 +28,11 @@ export const Styles = StyleSheet.create({
     },
     introTextStyle: {
         fontSize: 18,
-        color: 'white',
         textAlign: 'center',
         paddingVertical: 30,
     },
     introTitleStyle: {
         fontSize: 25,
-        color: 'white',
         textAlign: 'center',
         marginBottom: 16,
         fontWeight: 'bold',
