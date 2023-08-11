@@ -17,21 +17,18 @@ const Slides = [
         title: 'Great Offers',
         text: 'Enjoy Great offers on our all services',
         image: require('../../assets/images/hc2.png'),
-        backgroundColor: '#22bcb5',
     },
     {
         key: 's2',
         title: 'Best Deals',
         text: ' Best Deals on all our services',
         image: require('../../assets/images/hc1.gif'),
-        backgroundColor: '#3395ff',
     },
     {
         key: 's3',
         title: 'Bus Booking',
-        text: 'Enjoy Travelling on Bus with flat 100% off',
+        text: 'Enjoy Travelling on Bus with flat 100% on',
         image: require('../../assets/images/hc1.gif'),
-        backgroundColor: '#f6437b',
     },
 
 ];
@@ -55,7 +52,7 @@ const renderSkipButton = () => (
 
 const renderDoneButton = () => (
 
-    <TouchableOpacity  style={Styles.button}>
+    <TouchableOpacity style={Styles.button}>
         <Text style={Styles.introTextStyle}>
             Done</Text>
     </TouchableOpacity>
@@ -65,18 +62,33 @@ const renderDoneButton = () => (
 const OnboardingItem = ({ item }: { item: any }) => {
     const height = Dimensions.get('window').height * 0.5;
     return (
-        <View>
-            <View >
-                <Image image={item.image} resizeMode="center" style={{ height }} />
+        <View
+            style={[
+                styles.container,
+                {
+                    // Try setting `flexDirection` to `"row"`.
+                    flexDirection: 'column',
+                    backgroundColor: 'black'
+                },
+            ]}
+        >
+            <View style={{ flex: 1, backgroundColor: 'red' }} >
+                {/* <Image image={item.image} resizeMode="center" style={{ height }} /> */}
             </View>
-            <View>
+            <View style={{ flex: 2, backgroundColor: 'green' }} >
+                <Title > {item.title} </Title>
+                <Text style={Styles.introTextStyle}>
+                    {item.text}
+                </Text>
+            </View>
+            <View style={{ flex: 3, backgroundColor: 'yellow' }} >
                 <Title > {item.title} </Title>
                 <Text style={Styles.introTextStyle}>
                     {item.text}
                 </Text>
             </View>
         </View >
-    );
+    )
 };
 
 export default (props: Props) => {
@@ -84,24 +96,28 @@ export default (props: Props) => {
     const insets = useSafeAreaInsets();
     return (
         <>
-            <PaperProvider theme={Themed.dark}>
+            <PaperProvider >
                 <AppIntroSlider
                     data={Slides}
                     renderItem={OnboardingItem}
                     style={{
-                        backgroundColor: 'red',
-                        shadowColor: theme.colors.shadow,
-                        alignContent: 'center',
-                        borderColor: 'black'
+                        // backgroundColor: 'green',
 
                     }}
                     onDone={props.onDone}
                     showPrevButton={true}
                     showSkipButton={true}
-                    renderNextButton={renderDoneButton}
                     contentInset={insets}
+
                 />
             </PaperProvider>
         </>
     );
-}; 
+};
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        padding: 20,
+        color: 'blue'
+    },
+});
