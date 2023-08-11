@@ -4,7 +4,7 @@ import AppIntroSlider from 'react-native-app-intro-slider';
 import Themed from '../components/common/Themed';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Styles } from '../components/common';
-import { Title, Text, View, ImageBackground, Image } from '../components/controls';
+import { Title, Text, ImageBackground, Image, View } from '../components/controls';
 import { PaperProvider } from 'react-native-paper';
 
 
@@ -51,7 +51,6 @@ const renderSkipButton = () => (
 );
 
 const renderDoneButton = () => (
-
     <TouchableOpacity style={Styles.button}>
         <Text style={Styles.introTextStyle}>
             Done</Text>
@@ -62,27 +61,18 @@ const renderDoneButton = () => (
 const OnboardingItem = ({ item }: { item: any }) => {
     const height = Dimensions.get('window').height * 0.5;
     return (
-        <View
-            style={[
-                styles.container,
-                {
-                    // Try setting `flexDirection` to `"row"`.
-                    flexDirection: 'column',
-                    backgroundColor: 'black'
-                },
-            ]}
-        >
-            <View style={{ flex: 1, backgroundColor: 'red' }} >
-                {/* <Image image={item.image} resizeMode="center" style={{ height }} /> */}
+        <View style={[Styles.container]} >
+            <View style={{ flex: 8 }} >
+                <Image image={item.image} resizeMode="center" style={{ height }} />
             </View>
-            <View style={{ flex: 2, backgroundColor: 'green' }} >
+            <View style={{ flex: 2 }} >
                 <Title > {item.title} </Title>
                 <Text style={Styles.introTextStyle}>
                     {item.text}
                 </Text>
             </View>
-            <View style={{ flex: 3, backgroundColor: 'yellow' }} >
-                <Title > {item.title} </Title>
+            <View style={{ flex: 2 }} >
+                <Title > Bottom Up</Title>
                 <Text style={Styles.introTextStyle}>
                     {item.text}
                 </Text>
@@ -99,25 +89,13 @@ export default (props: Props) => {
             <PaperProvider >
                 <AppIntroSlider
                     data={Slides}
-                    renderItem={OnboardingItem}
-                    style={{
-                        // backgroundColor: 'green',
-
-                    }}
+                    renderItem={OnboardingItem} 
                     onDone={props.onDone}
                     showPrevButton={true}
                     showSkipButton={true}
                     contentInset={insets}
-
                 />
             </PaperProvider>
         </>
     );
-};
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        padding: 20,
-        color: 'blue'
-    },
-});
+}; 
