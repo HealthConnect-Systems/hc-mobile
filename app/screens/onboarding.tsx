@@ -1,10 +1,10 @@
 import React from 'react';
-import { Dimensions, useColorScheme } from 'react-native';
+import { Dimensions, useColorScheme, StyleSheet, TouchableOpacity } from 'react-native';
 import AppIntroSlider from 'react-native-app-intro-slider';
 import Themed from '../components/common/Themed';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Styles } from '../components/common';
-import { Title, Text, View, ImageBackground } from '../components/controls';
+import { Title, Text, View, ImageBackground, Image } from '../components/controls';
 import { PaperProvider } from 'react-native-paper';
 
 
@@ -16,7 +16,7 @@ const Slides = [
         key: 's1',
         title: 'Great Offers',
         text: 'Enjoy Great offers on our all services',
-        image: require('../../assets/images/hc1.gif'),
+        image: require('../../assets/images/hc2.png'),
         backgroundColor: '#22bcb5',
     },
     {
@@ -33,27 +33,48 @@ const Slides = [
         image: require('../../assets/images/hc1.gif'),
         backgroundColor: '#f6437b',
     },
-    {
-        key: 's4',
-        title: 'Train Booking',
-        text: ' 10% off on first Train booking',
-        image: require('../../assets/images/hc1.gif'),
-        backgroundColor: '#febe29',
-    },
-];
 
+];
+const onSkip = () => {
+    // Handle skip button press
+    console.log('Skip button pressed');
+};
+
+const onDone = () => {
+    // Handle done button press
+    console.log('Done button pressed');
+};
+
+const renderSkipButton = () => (
+    <TouchableOpacity onPress={onSkip} style={Styles.button}>
+
+        <Text style={Styles.introTextStyle}>
+            Skip</Text>
+    </TouchableOpacity>
+);
+
+const renderDoneButton = () => (
+
+    <TouchableOpacity  style={Styles.button}>
+        <Text style={Styles.introTextStyle}>
+            Done</Text>
+    </TouchableOpacity>
+
+);
 
 const OnboardingItem = ({ item }: { item: any }) => {
-    const width = Dimensions.get('window').width;
-    const height = Dimensions.get('window').height;
+    const height = Dimensions.get('window').height * 0.5;
     return (
         <View>
-            <ImageBackground source={item.image} resizeMode="center" style={{ width, height }} >
+            <View >
+                <Image image={item.image} resizeMode="center" style={{ height }} />
+            </View>
+            <View>
                 <Title > {item.title} </Title>
                 <Text style={Styles.introTextStyle}>
                     {item.text}
                 </Text>
-            </ImageBackground>
+            </View>
         </View >
     );
 };
@@ -63,20 +84,24 @@ export default (props: Props) => {
     const insets = useSafeAreaInsets();
     return (
         <>
-            <AppIntroSlider
-                data={Slides}
-                renderItem={OnboardingItem}
-                style={{
-                    backgroundColor: theme.colors.onBackground,
-                    shadowColor: theme.colors.shadow,
-                    alignContent: 'center',
+            <PaperProvider theme={Themed.dark}>
+                <AppIntroSlider
+                    data={Slides}
+                    renderItem={OnboardingItem}
+                    style={{
+                        backgroundColor: 'red',
+                        shadowColor: theme.colors.shadow,
+                        alignContent: 'center',
+                        borderColor: 'black'
 
-                }}
-                onDone={props.onDone}
-                showPrevButton={true}
-                showSkipButton={true}
-                contentInset={insets}
-            />
+                    }}
+                    onDone={props.onDone}
+                    showPrevButton={true}
+                    showSkipButton={true}
+                    renderNextButton={renderDoneButton}
+                    contentInset={insets}
+                />
+            </PaperProvider>
         </>
     );
 }; 
