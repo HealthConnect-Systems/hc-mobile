@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react';
 import { useColorScheme } from 'react-native';
 import { useFonts } from 'expo-font';
-import { SplashScreen, Slot, Tabs, Stack } from 'expo-router';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { SplashScreen, Stack } from 'expo-router';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { PaperProvider } from 'react-native-paper';

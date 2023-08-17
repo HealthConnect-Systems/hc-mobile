@@ -4,7 +4,6 @@ import { Card, Button, Text, Portal, Modal } from '../components/controls';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import LoginScreen from './Login';
 
-
 const HomeScreen = () => {
     const [visible, setVisible] = React.useState(false);
 

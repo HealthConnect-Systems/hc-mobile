@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dimensions, useColorScheme, StyleSheet, TouchableOpacity } from 'react-native';
+import { Dimensions, useColorScheme, TouchableOpacity } from 'react-native';
 import AppIntroSlider from 'react-native-app-intro-slider';
 import Themed from '../components/common/Themed';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -89,7 +89,7 @@ export default (props: Props) => {
             <PaperProvider >
                 <AppIntroSlider
                     data={Slides}
-                    renderItem={OnboardingItem} 
+                    renderItem={OnboardingItem}
                     onDone={props.onDone}
                     showPrevButton={true}
                     showSkipButton={true}

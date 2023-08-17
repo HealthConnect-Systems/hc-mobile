@@ -41,6 +41,14 @@ export const Styles = StyleSheet.create({
         marginBottom: 16,
         fontWeight: 'bold',
     },
+    link: {
+        marginTop: 15,
+        paddingVertical: 15,
+    },
+    linkText: {
+        fontSize: 14,
+        color: '#2e78b7',
+    },
 });
 
 export default Styles;
