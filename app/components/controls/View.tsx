@@ -4,8 +4,12 @@ import { View as NativeView } from 'react-native';
 import _ from 'lodash';
 
 export const View = (props: NativeView['props']) => {
-    return (<NativeView {...props} > {props.children} </NativeView>);
+    return (<NativeView {...props} >
+        {props.children}
+    </NativeView>);
 }
+
+
 
 export const Row = (props: NativeView['props']) => {
     const style = props.style;
