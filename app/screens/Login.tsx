@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, TextInput, Modal, Portal, Row } from '../components/controls';
 import { useDispatch } from 'react-redux';
-import { login } from '../store/authSlice';
+import AuthService from '../services/auth'
 
 type Props = {
     visible: boolean;
@@ -15,7 +15,8 @@ const LoginScreen = (props: Props) => {
     const  [password, setPassword] = React.useState('');
 
     const handleLogin = () => {
-        dispatch(login({email, password}));
+        AuthService.login(email, password)
+        // dispatch(login({email, password}));
         props?.onLogin({email, password});
     }
 
