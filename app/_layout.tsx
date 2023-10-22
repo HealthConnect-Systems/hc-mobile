@@ -6,7 +6,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { PaperProvider } from 'react-native-paper';
 import Themed from './components/common/Themed';
-import Onboarding from './screens/onboarding';
+import Onboarding from './screens/Onboarding';
 
 function RootLayout() {
   const theme = useColorScheme() === 'dark' ? Themed.dark : Themed.light;
