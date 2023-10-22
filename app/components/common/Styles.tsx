@@ -2,14 +2,14 @@ import { StyleSheet } from 'react-native';
 import Themed from './Themed';
 
 export const Styles = StyleSheet.create({
-    view: {
-        alignItems: 'center',
-    },
     container: {
-        alignItems: 'center',
-        flexDirection: 'column',
-        padding: 20
-        
+        flex: 1,
+        padding: 15,
+        margin: 15
+    },
+    contentContainer: {
+        flex: 1,
+        justifyContent: 'center',
     },
     row: {
         flexDirection: 'row',
