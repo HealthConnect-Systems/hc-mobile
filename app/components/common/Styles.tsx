@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import Themed from './Themed';
 
 export const Styles = StyleSheet.create({
     view: {
@@ -8,6 +9,7 @@ export const Styles = StyleSheet.create({
         alignItems: 'center',
         flexDirection: 'column',
         padding: 20
+        
     },
     row: {
         flexDirection: 'row',
@@ -34,6 +36,7 @@ export const Styles = StyleSheet.create({
         fontSize: 18,
         textAlign: 'center',
         paddingVertical: 30,
+        color : 'yellow'
     },
     introTitleStyle: {
         fontSize: 25,

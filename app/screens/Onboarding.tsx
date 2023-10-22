@@ -72,9 +72,10 @@ const OnboardingItem = ({ item }: { item: any }) => {
                 </Text>
             </View>
             <View style={{ flex: 2 }} >
-                <Title > Bottom Up</Title>
+                <Title > Bottom Up</Title> 
                 <Text style={Styles.introTextStyle}>
                     {item.text}
+                    
                 </Text>
             </View>
         </View >
